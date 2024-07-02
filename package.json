@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "sync_raw": "node scripts/sync_raw.js 'xlsx/problems.xlsx' 'xlsx/review.xlsx'",
+    "ml:install": "opam switch create . && opam install dune ocaml-lsp-server ocamlformat",
+    "ml:watch": "./OCAML/watch.sh",
+    "ml:test": "dune exec test"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

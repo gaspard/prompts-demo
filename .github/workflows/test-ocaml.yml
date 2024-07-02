@@ -1,0 +1,36 @@
+name: Builds, tests & co
+
+on:
+  pull_request:
+  # push:
+  # schedule:
+  # Prime the caches every Monday
+  #   - cron: 0 1 * * MON
+
+permissions: read-all
+
+defaults:
+  run:
+    working-directory: OCAML
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v4
+
+      - name: Set-up OCaml
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: '4.14.2'
+
+      - run: opam install . --deps-only --with-test
+
+      - run: opam exec -- dune build
+
+      - run: opam exec -- dune exec test
