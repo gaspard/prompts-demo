@@ -18,6 +18,7 @@ let validate candidate =
   (* examples *)
   assert_equal (candidate 1) 1;
   assert_equal (candidate 2) 2;
+  assert_equal (candidate 3) 3;
 
   (* cases *)
   assert_equal (candidate 1) 2;

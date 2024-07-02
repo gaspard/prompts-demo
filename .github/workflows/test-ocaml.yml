@@ -1,4 +1,4 @@
-name: Builds, tests & co
+name: OCaml CI
 
 on:
   pull_request:
@@ -8,10 +8,6 @@ on:
   #   - cron: 0 1 * * MON
 
 permissions: read-all
-
-defaults:
-  run:
-    working-directory: OCAML
 
 jobs:
   build:
